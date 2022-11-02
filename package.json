@@ -6,10 +6,9 @@
     "turbolinks": "^5.2.0",
     "@rails/actioncable": "^6.0.0"
   },
-  {
+  
     "engines": {
       "node": "12"
-    }
   },
   "version": "0.1.0"
 }
