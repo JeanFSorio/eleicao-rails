@@ -1,0 +1,27 @@
+<%= form_with(model: localidade) do |form| %>
+  <% if localidade.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(localidade.errors.count, "error") %> prohibited this localidade from being saved:</h2>
+
+      <ul>
+        <% localidade.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :sigla, style: "display: block" %>
+    <%= form.text_field :sigla %>
+  </div>
+
+  <div>
+    <%= form.label :nome, style: "display: block" %>
+    <%= form.text_field :nome %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
