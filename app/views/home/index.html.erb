@@ -70,7 +70,11 @@ function localidadeSelected() {
   $(document).on("change", '#resultado_horario', function (){
         var selectValue = $(this).val();
     
-        $('#resultados').append(`<%= render partial: 'resultados/resultado', locals: {resultado: @resultado}  %>`);
+        Rails.ajax({
+  url: "/resultado/" + selectValue,
+  type: "get",
+  success: function(data) { Rails.$("#resultados")[0].innerHTML = data.html; }
+})
      });
 
 
