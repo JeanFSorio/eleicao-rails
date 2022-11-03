@@ -23,13 +23,6 @@
 <script type="text/javascript">     
 
 
-
-      function updateDiv() {
-          $( "#resultados" ).load(window.location.href + " #resultados" )
-      }
-
-      var timer = setInterval(updateDiv, 30000);
-
 var resultados = new Array();
 <% for resultado in @resultados -%>
   if ('<%= resultado['carper'] %>' == "p")
