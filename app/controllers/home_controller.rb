@@ -1,8 +1,8 @@
 class HomeController < ApplicationController
     def index
-        @resultados = Resultado.all.sort_by!{|r| r.datetime.to_i}.reverse
+        @resultados = Resultado.all.select{ |item| item[:pst].to_f > 0.0 }.sort_by!{|r| r.datetime.to_i}.reverse
         @localidades = Localidade.all
-        @resultado = @resultados.find("635f2c2d213c0deaa770be9c")
+        @resultado = Resultado.find("635f4277213c0deaa770bedf") #ultimo de presidente
     end
     def resultado
         @resultado = Resultado.find(params[:id])
