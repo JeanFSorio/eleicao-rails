@@ -73,7 +73,7 @@ function localidadeSelected() {
         $.ajax({
   url: "/resultado/" + selectValue,
   type: "get",
-  success: function(data) { Rails.$("#resultados")[0].innerHTML = data.html; }
+  success: function(data) { $("#resultados").HTML(data.html); }
 })
      });
 
