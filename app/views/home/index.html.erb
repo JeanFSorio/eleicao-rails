@@ -1,0 +1,99 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Resultadp</h1>
+<%= form_with(scope: "resultado") do |f| %>
+  
+  <div class="field">
+    <%= f.label :localidade %><br />
+    <%= f.select :localidade, @localidades.collect { |p| [ p.nome, p.sigla ] }, {include_blank: false } %>
+  </div>
+ <div class="field">
+    <%= f.label :horario, "State or Province" %><br />
+    <%= f.select :horario, Resultado.all.collect { |p| [ p.cdabr, p._id ] },{ include_blank: false}  %>
+
+  </div> 
+<% end %>
+<div id="resultados">
+</div>
+
+
+
+
+
+<script type="text/javascript">     
+
+
+
+      function updateDiv() {
+          $( "#resultados" ).load(window.location.href + " #resultados" )
+      }
+
+      var timer = setInterval(updateDiv, 30000);
+
+var resultados = new Array();
+<% for resultado in @resultados -%>
+  if ('<%= resultado['carper'] %>' == "p")
+    resultados.push(new Array('<%= resultado['cdabr'] %>', '<%=h resultado['datetime'] %>', '<%= resultado['_id'] %>'));
+<% end -%>
+
+function localidadeSelected() {
+  localidade = $('#resultado_localidade').val();
+  options = $("select#resultado_horario option").map(function() {return $(this).val();}).get();
+  options.length = 1;
+  resultados.forEach(function(resultado) {
+    if (resultado[0] == localidade) {
+      options[options.length] = new Option(resultado[1], resultado[2]);
+    }
+  });
+  $("#resultado_horario").replaceOptions(options);
+  $('#resultado_horario :first-child').text('Apuração ao vivo');
+}
+
+(function($, window) {
+  $.fn.replaceOptions = function(options) {
+    var self, $option;
+
+    this.empty();
+    self = this;
+
+    $.each(options, function(index, option) {
+      $option = $("<option></option>")
+        .attr("value", option.value)
+        .text(option.text);
+      self.append($option);
+    });
+  };
+})(jQuery, window);
+
+  $('#resultado_localidade').on('change', localidadeSelected);
+//   $('#resultado_localidade').ready( localidadeSelected);
+  $(document).on("change", '#resultado_horario', function (){
+        var selectValue = $(this).val();
+    
+        $('#resultados').append(`<%= render partial: 'resultados/resultado', locals: {resultado: @resultado}  %>`);
+     });
+
+
+    function changeApuracao() {
+      id = 2
+
+        $('tbody').empty()
+        $('tbody').append(`
+                <tr>
+                </tr>`)
+  resultados.forEach(function(resultado) {
+    resultado[3].forEach(function(candidato) {
+      $('tbody').append(`
+                <tr>
+                  <td> ${candidato['seq']} </td>
+                  <td> ${candidato['nm']} </td>
+                  <td> ${candidato['vap']}</td>
+                  <td> ${candidato['pvap']} % </td>
+
+                </tr>`)
+    })
+  });
+    }
+
+
+</script>

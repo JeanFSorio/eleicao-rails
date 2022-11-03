@@ -1,0 +1,24 @@
+<div id="<%= dom_id resultado %>">
+    <h1>Resultados:</h1>
+    <h3 id="horario">Ultima atualização: <%= resultado['hg'] %></h3>
+    <h3 id="apurados">Porcentagem apurada: <%= resultado['pst'] %>% </h3>
+
+    <table id='tabela'>
+        <thead>
+            <td>#</td>
+            <td>Nome</td>
+            <td>Votos</td>
+            <td>Porcentagem</td>
+        </thead>
+        <tbody>
+            <% resultado['cand'].each do |candidato| %>
+                <tr>
+                <td><%= candidato['seq'] %></td>
+                <td><%= candidato['nm'] %></td>
+                <td><%= candidato['vap'] %></td>
+                <td><%= candidato['pvap'] %>% </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
