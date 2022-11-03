@@ -71,7 +71,7 @@ function localidadeSelected() {
         var selectValue = $(this).val();
     
         $.ajax({
-  url: "/resultado/" + selectValue,
+  url: "api/resultado/" + selectValue,
   type: "get",
   success: function(data) { $("#resultados").HTML(data.html); }
 })

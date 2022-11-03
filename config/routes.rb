@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root "home#index"
-  get "/resultado/:id", to: "home#resultado"
+  get "api/resultado/:id", to: "home#resultado"
 
   resources :localidades
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
