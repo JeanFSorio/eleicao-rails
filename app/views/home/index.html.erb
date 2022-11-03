@@ -73,7 +73,10 @@ function localidadeSelected() {
         $.ajax({
   url: "api/resultado/" + selectValue,
   type: "get",
-  success: function(data) { $("#resultados").HTML(data.html); }
+  success: function(data) { 
+    $("#resultados").empty();
+    $("#resultados").append(data.html); 
+  }
 })
      });
 
