@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
     def index
-        @resultados = Resultado.all.limit(4)
+        @resultados = Resultado.all.sort_by!{|r| r.datetime.to_i}.reverse
         @localidades = Localidade.all
         @resultado = @resultados.find("635f2c2d213c0deaa770be9c")
     end

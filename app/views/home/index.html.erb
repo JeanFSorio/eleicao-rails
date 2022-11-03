@@ -1,15 +1,18 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Resultadp</h1>
+<h1>Histórico 2º Turno</h1>
 <%= form_with(scope: "resultado") do |f| %>
-  
+  <div class="field">
+    <%= f.label :tipo %><br />
+    <%= f.select :tipo, %w(Presidente Governador), {include_blank: false }, {disabled: true }%>
+  </div>
   <div class="field">
     <%= f.label :localidade %><br />
     <%= f.select :localidade, @localidades.collect { |p| [ p.nome, p.sigla ] }, {include_blank: false } %>
   </div>
  <div class="field">
-    <%= f.label :horario, "State or Province" %><br />
-    <%= f.select :horario, Resultado.all.collect { |p| [ p.cdabr, p._id ] },{ include_blank: false}  %>
+    <%= f.label :horario, "Horario" %><br />
+    <%= f.select :horario, Resultado.all.collect { |p| [ p.cdabr, p._id ] },{ include_blank: true }  %>
 
   </div> 
 <% end %>
@@ -20,12 +23,14 @@
 
 
 
+
+
 <script type="text/javascript">     
 
 
 var resultados = new Array();
 <% for resultado in @resultados -%>
-  if ('<%= resultado['carper'] %>' == "p")
+  if ('<%= resultado['carper'] %>' == "1")
     resultados.push(new Array('<%= resultado['cdabr'] %>', '<%=h resultado['datetime'] %>', '<%= resultado['_id'] %>'));
 <% end -%>
 
@@ -34,12 +39,12 @@ function localidadeSelected() {
   options = $("select#resultado_horario option").map(function() {return $(this).val();}).get();
   options.length = 1;
   resultados.forEach(function(resultado) {
-    if (resultado[0] == localidade) {
+    if (resultado[0].toLowerCase() == localidade.toLowerCase()) {
       options[options.length] = new Option(resultado[1], resultado[2]);
     }
   });
   $("#resultado_horario").replaceOptions(options);
-  $('#resultado_horario :first-child').text('Apuração ao vivo');
+  
 }
 
 (function($, window) {
@@ -56,22 +61,26 @@ function localidadeSelected() {
       self.append($option);
     });
   };
+  
 })(jQuery, window);
 
   $('#resultado_localidade').on('change', localidadeSelected);
-//   $('#resultado_localidade').ready( localidadeSelected);
-  $(document).on("change", '#resultado_horario', function (){
+  $('#resultado_localidade').ready( localidadeSelected);
+  $('#resultado_horario').ready( renderApuracao);
+  $(document).on("change", '#resultado_horario', renderApuracao);
+
+  function renderApuracao(){
         var selectValue = $(this).val();
     
         $.ajax({
-  url: "api/resultado/" + selectValue,
-  type: "get",
-  success: function(data) { 
-    $("#resultados").empty();
-    $("#resultados").append(data.html); 
-  }
-})
-     });
+          url: "api/resultado/" + selectValue,
+          type: "get",
+          success: function(data) { 
+            $("#resultados").empty();
+            $("#resultados").append(data.html); 
+          }
+        })
+     }
 
 
     function changeApuracao() {
