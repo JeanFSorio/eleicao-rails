@@ -12,11 +12,36 @@
   </div>
  <div class="field">
     <%= f.label :horario, "Horario" %><br />
-    <%= f.select :horario, Resultado.all.collect { |p| [ p.cdabr, p._id ] },{ include_blank: true }  %>
+    <%= f.select :horario, Resultado.all.collect { |p| [ p.cdabr, p._id ] },{ include_blank: false }  %>
 
   </div> 
 <% end %>
 <div id="resultados">
+<div id="">
+    <h1>Resultados:</h1>
+    <h3 id="horario">Ultima atualização: <%= @resultado['datetime'] %></h3>
+    <h3 id="apurados">Porcentagem apurada: <%= @resultado['pst'] %>% </h3>
+
+    <table id='tabela'>
+        <thead>
+            <td>#</td>
+            <td>Nome</td>
+            <td>Votos</td>
+            <td>Porcentagem</td>
+        </thead>
+        <tbody>
+            <% @resultado['cand'].each do |candidato| %>
+                <tr>
+                <td><%= candidato['seq'] %></td>
+                <td><%= candidato['nm'] %></td>
+                <td><%= candidato['vap'] %></td>
+                <td><%= candidato['pvap'] %>% </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+
 </div>
 
 
@@ -24,8 +49,7 @@
 
 
 
-
-<script type="text/javascript">     
+<script name="filterGorarioSelect" type="text/javascript">     
 
 
 var resultados = new Array();
@@ -37,7 +61,7 @@ var resultados = new Array();
 function localidadeSelected() {
   localidade = $('#resultado_localidade').val();
   options = $("select#resultado_horario option").map(function() {return $(this).val();}).get();
-  options.length = 1;
+  options.length = 0;
   resultados.forEach(function(resultado) {
     if (resultado[0].toLowerCase() == localidade.toLowerCase()) {
       options[options.length] = new Option(resultado[1], resultado[2]);
@@ -66,7 +90,12 @@ function localidadeSelected() {
 
   $('#resultado_localidade').on('change', localidadeSelected);
   $('#resultado_localidade').ready( localidadeSelected);
-  $('#resultado_horario').ready( renderApuracao);
+ 
+</script>
+
+<script name="renderTable" type="text/javascript">
+
+ $('#resultado_horario').ready( renderApuracao);
   $(document).on("change", '#resultado_horario', renderApuracao);
 
   function renderApuracao(){
@@ -81,28 +110,6 @@ function localidadeSelected() {
           }
         })
      }
-
-
-    function changeApuracao() {
-      id = 2
-
-        $('tbody').empty()
-        $('tbody').append(`
-                <tr>
-                </tr>`)
-  resultados.forEach(function(resultado) {
-    resultado[3].forEach(function(candidato) {
-      $('tbody').append(`
-                <tr>
-                  <td> ${candidato['seq']} </td>
-                  <td> ${candidato['nm']} </td>
-                  <td> ${candidato['vap']}</td>
-                  <td> ${candidato['pvap']} % </td>
-
-                </tr>`)
-    })
-  });
-    }
 
 
 </script>
