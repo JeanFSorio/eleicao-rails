@@ -70,7 +70,7 @@ function localidadeSelected() {
   $(document).on("change", '#resultado_horario', function (){
         var selectValue = $(this).val();
     
-        Rails.ajax({
+        $.ajax({
   url: "/resultado/" + selectValue,
   type: "get",
   success: function(data) { Rails.$("#resultados")[0].innerHTML = data.html; }
