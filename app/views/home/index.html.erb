@@ -1,49 +1,27 @@
-<p style="color: green"><%= notice %></p>
+<head>
+    <%= stylesheet_link_tag "index", "data-turbo-track": "reload" %>
+</head>
 
-<h1>Histórico 2º Turno</h1>
+<div class="container">
+<div class="main">
+<h1 class="title">Histórico 2º Turno</h1>
 <%= form_with(scope: "resultado") do |f| %>
   <div class="field">
     <%= f.label :tipo %><br />
-    <%= f.select :tipo, %w(Presidente Governador), {include_blank: false }, {disabled: true }%>
-  </div>
-  <div class="field">
+    <%= f.select :tipo, %w(Presidente Governador), {include_blank: false } %>
     <%= f.label :localidade %><br />
     <%= f.select :localidade, @localidades.collect { |p| [ p.nome, p.sigla ] }, {include_blank: false } %>
-  </div>
- <div class="field">
     <%= f.label :horario, "Horario" %><br />
     <%= f.select :horario, Resultado.all.collect { |p| [ p.cdabr, p._id ] },{ include_blank: false }  %>
-
-  </div> 
+  </div>
 <% end %>
 <div id="resultados">
-<div id="">
-    <h1>Resultados:</h1>
-    <h3 id="horario">Ultima atualização: <%= @resultado['datetime'] %></h3>
-    <h3 id="apurados">Porcentagem apurada: <%= @resultado['pst'] %>% </h3>
 
-    <table id='tabela'>
-        <thead>
-            <td>#</td>
-            <td>Nome</td>
-            <td>Votos</td>
-            <td>Porcentagem</td>
-        </thead>
-        <tbody>
-            <% @resultado['cand'].each do |candidato| %>
-                <tr>
-                <td><%= candidato['seq'] %></td>
-                <td><%= candidato['nm'] %></td>
-                <td><%= candidato['vap'] %></td>
-                <td><%= candidato['pvap'] %>% </td>
-                </tr>
-            <% end %>
-        </tbody>
-    </table>
 </div>
 
 </div>
 
+</div>
 
 
 
@@ -54,16 +32,15 @@
 
 var resultados = new Array();
 <% for resultado in @resultados -%>
-  if ('<%= resultado['carper'] %>' == "1")
-    resultados.push(new Array('<%= resultado['cdabr'] %>', '<%=h resultado['datetime'] %>', '<%= resultado['_id'] %>'));
+    resultados.push(new Array('<%= resultado['cdabr'] %>', '<%=h resultado['datetime'] %>', '<%= resultado['_id'] %>', '<%= resultado['ele'] %>'));
 <% end -%>
-
 function localidadeSelected() {
   localidade = $('#resultado_localidade').val();
+  tipo = $('#resultado_tipo').val() == "Presidente" ? "545" : "547"
   options = $("select#resultado_horario option").map(function() {return $(this).val();}).get();
-  options.length = 0;
+  options.length = 1;
   resultados.forEach(function(resultado) {
-    if (resultado[0].toLowerCase() == localidade.toLowerCase()) {
+    if (resultado[0].toLowerCase() == localidade.toLowerCase() && resultado[3] == tipo) {
       options[options.length] = new Option(resultado[1], resultado[2]);
     }
   });
@@ -88,10 +65,26 @@ function localidadeSelected() {
   
 })(jQuery, window);
 
-  $('#resultado_localidade').on('change', localidadeSelected);
+  $('#resultado_localidade').on('change', function () {
+    localidadeSelected()
+    $("#resultados").empty();
+  });
   $('#resultado_localidade').ready( localidadeSelected);
+  $('#resultado_tipo').on('change', function() {
+    options = $("select#resultado_horario option").map(function() {return $(this).val();}).get();
+  options.length = 1;
+  $("#resultado_horario").replaceOptions(options);
+    $("#resultados").empty();
+
+  });
  
 </script>
+
+
+
+
+
+
 
 <script name="renderTable" type="text/javascript">
 

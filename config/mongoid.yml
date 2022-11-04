@@ -4,7 +4,7 @@ development:
     # Defines the default client. (required)
     default:
       # Mongoid can connect to a URI accepted by the driver:
-      uri: mongodb://mongo:mjfCq9Q17i7cFKmJo1n0@containers-us-west-28.railway.app:6991/eleicao?authSource=admin&retryWrites=true&w=majority
+      uri: <%= ENV["MONGO_URL"] %>
 
       # Otherwise define the parameters separately.
       # This defines the name of the default database that Mongoid can connect to.
@@ -176,5 +176,5 @@ development:
 test:
   clients:
     default:
-      uri: mongodb://mongo:mjfCq9Q17i7cFKmJo1n0@containers-us-west-28.railway.app:6991/eleicao?authSource=admin&retryWrites=true&w=majority
+      uri: <%= ENV["MONGO_URL_TEST"] %>
       

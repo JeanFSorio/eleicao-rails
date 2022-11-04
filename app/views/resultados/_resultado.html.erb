@@ -1,9 +1,8 @@
-<div id="<%= dom_id resultado %>">
-    <h1>Resultados:</h1>
-    <h3 id="horario">Ultima atualização: <%= resultado['datetime'] %></h3>
-    <h3 id="apurados">Porcentagem apurada: <%= resultado['pst'] %>% </h3>
+<div id="tabela">
+    <h5 id="apurados">Porcentagem apurada: <%= resultado['pst'] %>% </h5>
+    <h6 id="horario">Ultima atualização: <%= resultado['datetime'] %></h6>
 
-    <table id='tabela'>
+    <table class='table'>
         <thead>
             <td>#</td>
             <td>Nome</td>
@@ -15,7 +14,7 @@
                 <tr>
                 <td><%= candidato['seq'] %></td>
                 <td><%= candidato['nm'] %></td>
-                <td><%= candidato['vap'] %></td>
+                <td><%= candidato['vap'].to_i  %></td>
                 <td><%= candidato['pvap'] %>% </td>
                 </tr>
             <% end %>
