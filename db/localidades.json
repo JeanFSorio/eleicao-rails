@@ -1,0 +1,447 @@
+[{
+  "_id": {
+    "$oid": "6362f7d339e78f001c3c3565"
+  },
+  "sigla": "br",
+  "nome": "Brasil"
+},{
+  "_id": {
+    "$oid": "63632dfd0edf490001bee97d"
+  },
+  "sigla": "ac",
+  "nome": "Acre",
+  "updated_at": {
+    "$date": {
+      "$numberLong": "1667444221558"
+    }
+  },
+  "created_at": {
+    "$date": {
+      "$numberLong": "1667444221558"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6363cfcd36f79b1c1cc730f4"
+  },
+  "sigla": "al",
+  "nome": "Alagoas",
+  "updated_at": {
+    "$date": {
+      "$numberLong": "1667485645848"
+    }
+  },
+  "created_at": {
+    "$date": {
+      "$numberLong": "1667485645848"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6363cfdd36f79b1c1cc730f5"
+  },
+  "sigla": "ap",
+  "nome": "Amapá",
+  "updated_at": "2022-11-03T14:27:41.504Z",
+  "created_at": "2022-11-03T14:27:41.504Z"
+},{
+  "_id": {
+    "$oid": "6363cfe936f79b1c1cc730f6"
+  },
+  "sigla": "am",
+  "nome": "Amazonas",
+  "updated_at": {
+    "$date": {
+      "$numberLong": "1667485673130"
+    }
+  },
+  "created_at": {
+    "$date": {
+      "$numberLong": "1667485673130"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6363cff036f79b1c1cc730f7"
+  },
+  "sigla": "ba",
+  "nome": "Bahia",
+  "updated_at": {
+    "$date": {
+      "$numberLong": "1667485680713"
+    }
+  },
+  "created_at": {
+    "$date": {
+      "$numberLong": "1667485680713"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6363cffb36f79b1c1cc730f8"
+  },
+  "sigla": "ce",
+  "nome": "Ceará",
+  "updated_at": {
+    "$date": {
+      "$numberLong": "1667485691899"
+    }
+  },
+  "created_at": {
+    "$date": {
+      "$numberLong": "1667485691899"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6363d01236f79b1c1cc730f9"
+  },
+  "sigla": "df",
+  "nome": "Distrito Federal",
+  "updated_at": {
+    "$date": {
+      "$numberLong": "1667485714774"
+    }
+  },
+  "created_at": {
+    "$date": {
+      "$numberLong": "1667485714774"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6363d02e36f79b1c1cc730fa"
+  },
+  "sigla": "es",
+  "nome": "Espirito Santo",
+  "updated_at": {
+    "$date": {
+      "$numberLong": "1667485742879"
+    }
+  },
+  "created_at": {
+    "$date": {
+      "$numberLong": "1667485742879"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6363d03b36f79b1c1cc730fb"
+  },
+  "sigla": "go",
+  "nome": "Goiás",
+  "updated_at": {
+    "$date": {
+      "$numberLong": "1667485755089"
+    }
+  },
+  "created_at": {
+    "$date": {
+      "$numberLong": "1667485755089"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6363d04636f79b1c1cc730fc"
+  },
+  "sigla": "ma",
+  "nome": "Maranhão",
+  "updated_at": {
+    "$date": {
+      "$numberLong": "1667485766112"
+    }
+  },
+  "created_at": {
+    "$date": {
+      "$numberLong": "1667485766112"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6363d04f36f79b1c1cc730fd"
+  },
+  "sigla": "mt",
+  "nome": "Mato Grosso",
+  "updated_at": {
+    "$date": {
+      "$numberLong": "1667485775255"
+    }
+  },
+  "created_at": {
+    "$date": {
+      "$numberLong": "1667485775255"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6363d07d36f79b1c1cc730fe"
+  },
+  "sigla": "ms",
+  "nome": "Mato Grosso do Sul",
+  "updated_at": {
+    "$date": {
+      "$numberLong": "1667485821868"
+    }
+  },
+  "created_at": {
+    "$date": {
+      "$numberLong": "1667485821868"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6363d08a36f79b1c1cc730ff"
+  },
+  "sigla": "mg",
+  "nome": "Minas Gerais",
+  "updated_at": {
+    "$date": {
+      "$numberLong": "1667485834419"
+    }
+  },
+  "created_at": {
+    "$date": {
+      "$numberLong": "1667485834419"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6363d09336f79b1c1cc73100"
+  },
+  "sigla": "pa",
+  "nome": "Pará",
+  "updated_at": {
+    "$date": {
+      "$numberLong": "1667485843533"
+    }
+  },
+  "created_at": {
+    "$date": {
+      "$numberLong": "1667485843533"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6363d0a436f79b1c1cc73101"
+  },
+  "sigla": "pb",
+  "nome": "Paraiba",
+  "updated_at": {
+    "$date": {
+      "$numberLong": "1667485860795"
+    }
+  },
+  "created_at": {
+    "$date": {
+      "$numberLong": "1667485860795"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6363d0ad36f79b1c1cc73102"
+  },
+  "sigla": "pr",
+  "nome": "Paraná",
+  "updated_at": {
+    "$date": {
+      "$numberLong": "1667485869306"
+    }
+  },
+  "created_at": {
+    "$date": {
+      "$numberLong": "1667485869306"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6363d0bb36f79b1c1cc73103"
+  },
+  "sigla": "pe",
+  "nome": "Pernambuco",
+  "updated_at": {
+    "$date": {
+      "$numberLong": "1667485883599"
+    }
+  },
+  "created_at": {
+    "$date": {
+      "$numberLong": "1667485883599"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6363d0c836f79b1c1cc73104"
+  },
+  "sigla": "pi",
+  "nome": "Piauí",
+  "updated_at": {
+    "$date": {
+      "$numberLong": "1667485896684"
+    }
+  },
+  "created_at": {
+    "$date": {
+      "$numberLong": "1667485896684"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6363d0da36f79b1c1cc73105"
+  },
+  "sigla": "rj",
+  "nome": "Rio de Janeiro",
+  "updated_at": {
+    "$date": {
+      "$numberLong": "1667485914665"
+    }
+  },
+  "created_at": {
+    "$date": {
+      "$numberLong": "1667485914665"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6363d0eb36f79b1c1cc73106"
+  },
+  "sigla": "rn",
+  "nome": "Rio Grande do Norte",
+  "updated_at": {
+    "$date": {
+      "$numberLong": "1667485931840"
+    }
+  },
+  "created_at": {
+    "$date": {
+      "$numberLong": "1667485931840"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6363d0f336f79b1c1cc73107"
+  },
+  "sigla": "rs",
+  "nome": "Rio Grande do Sul",
+  "updated_at": {
+    "$date": {
+      "$numberLong": "1667485939980"
+    }
+  },
+  "created_at": {
+    "$date": {
+      "$numberLong": "1667485939980"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6363d10436f79b1c1cc73108"
+  },
+  "sigla": "ro",
+  "nome": "Rondônia",
+  "updated_at": {
+    "$date": {
+      "$numberLong": "1667485956150"
+    }
+  },
+  "created_at": {
+    "$date": {
+      "$numberLong": "1667485956150"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6363d11536f79b1c1cc73109"
+  },
+  "sigla": "rr",
+  "nome": "Roraima",
+  "updated_at": {
+    "$date": {
+      "$numberLong": "1667485973354"
+    }
+  },
+  "created_at": {
+    "$date": {
+      "$numberLong": "1667485973354"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6363d12636f79b1c1cc7310a"
+  },
+  "sigla": "sc",
+  "nome": "Santa Catarina",
+  "updated_at": {
+    "$date": {
+      "$numberLong": "1667485990528"
+    }
+  },
+  "created_at": {
+    "$date": {
+      "$numberLong": "1667485990528"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6363d14236f79b1c1cc7310b"
+  },
+  "sigla": "sp",
+  "nome": "São Paulo",
+  "updated_at": {
+    "$date": {
+      "$numberLong": "1667486018690"
+    }
+  },
+  "created_at": {
+    "$date": {
+      "$numberLong": "1667486018690"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6363d14d36f79b1c1cc7310c"
+  },
+  "sigla": "se",
+  "nome": "Sergipe",
+  "updated_at": {
+    "$date": {
+      "$numberLong": "1667486029071"
+    }
+  },
+  "created_at": {
+    "$date": {
+      "$numberLong": "1667486029071"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6363d15636f79b1c1cc7310d"
+  },
+  "sigla": "to",
+  "nome": "Tocantins",
+  "updated_at": {
+    "$date": {
+      "$numberLong": "1667486038193"
+    }
+  },
+  "created_at": {
+    "$date": {
+      "$numberLong": "1667486038193"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6363d15e36f79b1c1cc7310e"
+  },
+  "sigla": "zz",
+  "nome": "Exterior",
+  "updated_at": {
+    "$date": {
+      "$numberLong": "1667486046723"
+    }
+  },
+  "created_at": {
+    "$date": {
+      "$numberLong": "1667486046723"
+    }
+  }
+}]
