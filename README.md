@@ -5,7 +5,7 @@ This project goal was to make a log of every minute update of an API, [this API]
 So from time to time I saved in a mongodb a log with my [python observer](https://github.com/JeanFSorio/python-api-observer).
 
 Video example of the website:
-![example](https://raw.githubusercontent.com/JeanFSorio/eleicao-rails/master/app/assets/videos/website_example.gif)
+![website-example](https://github.com/JeanFSorio/eleicao-rails/assets/56233529/78908d3c-4fe8-4de6-a3bf-13d7fc570678)
 
 # Instalation
 
