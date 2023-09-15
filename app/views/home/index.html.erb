@@ -11,7 +11,7 @@
         <%= f.select :tipo, %w(Presidente Governador), {include_blank: false } %>
         
         <%= f.label :localidade %><br />
-        <%= f.select :localidade, @localidades.collect { |p| [ p.nome, p.sigla ] }, {include_blank: false, selected: @localidades[6].sigla } %>
+        <%= f.select :localidade, @localidades.collect { |p| [ p.nome, p.sigla ] }, {include_blank: false } %>
         
         <%= f.label :horario, "Horario" %><br />
         <%= f.select :horario, Resultado.all.collect { |p| [ p.cdabr, p._id ] },{ include_blank: false }  %>
