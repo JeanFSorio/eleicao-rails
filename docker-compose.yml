@@ -1,0 +1,45 @@
+version: '3'
+services:
+  # MongoDB Service
+  mongodb:
+    image: mongo:latest
+    container_name: eleicoes-mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./db:/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: examplepassword
+    # command:  mongoimport --username root --password examplepassword --authenticationDatabase admin --db eleicao --collection localidades --jsonArray /db/localidades.json && mongoimport --username root --password examplepassword --authenticationDatabase admin --db eleicao --collection localidades --jsonArray /db/resultados.json
+    # entrypoint: mongorestore --host mongodb --db eleicao /db
+
+
+  # Rails Application Service
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: eleicoes-rails-app
+    ports:
+      - "3005:3000"
+    depends_on:
+      - mongodb
+    volumes:
+      - .:/app
+    environment:
+      RAILS_ENV: development
+      MONGO_URL: mongodb://root:examplepassword@mongodb:27017/eleicao?authSource=admin&retryWrites=true&w=majority # Change to your database name
+
+  mongorestore:
+    image: mongo:latest
+    container_name: my-mongorestore
+    volumes:
+      - ./db:/db
+    depends_on:
+      - mongodb
+    command: 
+      - |
+      - mongoimport --username root --password examplepassword --authenticationDatabase admin --db eleicao --collection localidades --jsonArray /db/localidades.json 
+      - mongoimport --username root --password examplepassword --authenticationDatabase admin --db eleicao --collection resultados --jsonArray /db/resultados.json
+
