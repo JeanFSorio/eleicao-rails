@@ -24,7 +24,7 @@ services:
     ports:
       - "3005:3000"
     depends_on:
-      - mongodb
+      - mongorestore
     volumes:
       - .:/app
     environment:
@@ -38,8 +38,7 @@ services:
       - ./db:/db
     depends_on:
       - mongodb
-    command: 
-      - |
-      - mongoimport --username root --password examplepassword --authenticationDatabase admin --db eleicao --collection localidades --jsonArray /db/localidades.json 
-      - mongoimport --username root --password examplepassword --authenticationDatabase admin --db eleicao --collection resultados --jsonArray /db/resultados.json
+    command: > 
+      sh -c "mongoimport --uri 'mongodb://root:examplepassword@mongodb:27017/eleicao?authSource=admin&retryWrites=true&w=majority' --collection localidades --jsonArray /db/localidades.json &&
+       mongoimport --uri 'mongodb://root:examplepassword@mongodb:27017/eleicao?authSource=admin&retryWrites=true&w=majority' --collection resultados --jsonArray /db/resultados.json"
 
